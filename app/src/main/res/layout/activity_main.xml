@@ -22,6 +22,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
+        android:id="@+id/droid1"
         android:layout_width="210dp"
         android:layout_height="210dp"
         android:alpha="0.2"
@@ -33,6 +34,7 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
+        android:id="@+id/droid2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/ic_android"
@@ -43,7 +45,7 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/droid"
+        android:id="@+id/droid3"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:alpha="0.2"
