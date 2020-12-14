@@ -1,35 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:padding="16dp"
     android:gravity="center"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="end"
+        android:text="Uptime"
+        android:textColor="#2196f3"
+        android:textSize="50dp"
+        android:layout_marginBottom="32dp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textViewDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:fontFamily="@font/roboto_light"
         android:gravity="end"
+        android:fontFamily="@font/roboto_light"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
-
-    <TextView
-        android:id="@+id/textViewUptime"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/uptimeParent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_gravity="end"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto_mono_medium"
         android:gravity="end"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />
+        android:orientation="horizontal">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimation"
+            android:paddingTop="4dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            app:lottie_fileName="up_anim.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:id="@+id/textViewUptime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/roboto_mono_light"
+            android:textColor="#ffffff"
+            android:textSize="40dp"
+            tools:ignore="SpUsage" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

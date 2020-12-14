@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.visibility = View.GONE
 
         handler = Handler()
+
         textViewDateTime.text = getInfo()
 
         droids = arrayOf(droid1, droid2, droid3)
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         textViewDateTime.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide))
-        textViewUptime.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
+        uptimeParent.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
         startPlaying()
         handler.post(runner)
     }

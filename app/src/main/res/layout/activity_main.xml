@@ -21,6 +21,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <ImageView
         android:id="@+id/droid1"
         android:layout_width="210dp"
