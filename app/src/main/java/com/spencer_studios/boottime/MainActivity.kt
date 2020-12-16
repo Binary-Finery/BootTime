@@ -3,6 +3,7 @@ package com.spencer_studios.boottime
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
+import android.os.SystemClock
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -22,10 +23,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         toolbar.visibility = View.GONE
-
         handler = Handler()
-
-        textViewDateTime.text = getInfo()
+        initDateTimeValues()
 
         droids = arrayOf(droid1, droid2, droid3)
 
@@ -34,6 +33,15 @@ class MainActivity : AppCompatActivity() {
                 droidClick(bot as ImageView)
             }
         }
+    }
+
+    private fun initDateTimeValues(){
+        val values = getInfo()
+
+        textViewDevice.text = values[0]
+        textViewBootedOn.text = values[1]
+        textViewBootDate.text = values[2]
+        textViewBootTime.text = values[3]
     }
 
     private fun droidClick(imageView: ImageView) {
@@ -50,13 +58,20 @@ class MainActivity : AppCompatActivity() {
     private val runner = object : Runnable {
         override fun run() {
             handler.postDelayed(this, 1000L)
-            textViewUptime.text = formatUptime()
+            updateUI()
         }
+    }
+
+    private fun updateUI(){
+        textViewUptime.text = formatUptime()
+        val dateMeta = formatDate(System.currentTimeMillis() - SystemClock.elapsedRealtime())
+        textViewBootedOn.text = dateMeta[0]
+        textViewBootDate.text = dateMeta[1]
     }
 
     override fun onStart() {
         super.onStart()
-        textViewDateTime.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide))
+        dateTimeParent.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide))
         uptimeParent.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
         startPlaying()
         handler.post(runner)
